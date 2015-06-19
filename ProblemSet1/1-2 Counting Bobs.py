@@ -15,3 +15,4 @@ def my_count(string, substring):
             count+=1
     print ("Number of times bob occurs is: " + str(count))
 my_count(s,'bob')
+
