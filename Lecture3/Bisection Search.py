@@ -8,7 +8,8 @@ while not guessed:
     ans = (high + low)/2
     print("Is your secret number " + str(ans) + "? ")
 
-    fbk = raw_input("Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.")
+    fbk = raw_input("Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. \
+    Enter 'c' to indicate I guessed correctly.")
 
     if fbk == "h":
         high = ans
