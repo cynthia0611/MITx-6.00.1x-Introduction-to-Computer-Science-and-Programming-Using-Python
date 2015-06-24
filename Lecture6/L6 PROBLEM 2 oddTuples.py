@@ -8,7 +8,7 @@ def oddTuples(aTup):
     newTu = ()
     for i in range(0, len(aTup)):
         if i % 2 == 0:
-            newTu += (aTup[i],)
+            newTu += (aTup[i],) # make it possible to add a new element to the end of the tuple
     return newTu
 
 ##print oddTuples(('I', 'am', 'a', 'test', 'tuple'))
