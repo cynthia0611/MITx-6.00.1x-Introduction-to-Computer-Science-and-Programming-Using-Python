@@ -19,7 +19,6 @@ def radiationExposure(start, stop, step):
       between start and stop times.
     '''
 
-    # FILL IN YOUR CODE HERE...
     sumTotal = 0
 
     point = start
@@ -28,7 +27,6 @@ def radiationExposure(start, stop, step):
         sumTotal += sumSub
         point += step
     return sumTotal
-
 
 print radiationExposure(0, 4, 0.25)
 print radiationExposure(5, 10, 0.25)
