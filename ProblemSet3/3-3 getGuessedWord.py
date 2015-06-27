@@ -35,6 +35,7 @@ def getGuessedWord(secretWord, lettersGuessed):
             newList.append('_')   
    
     return newList
+    
 ##secretWord = 'apple' 
 ##lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's','a']
 ##print getGuessedWord('apple', ['e', 'i', 'k', 'p', 'r', 's','a'])
