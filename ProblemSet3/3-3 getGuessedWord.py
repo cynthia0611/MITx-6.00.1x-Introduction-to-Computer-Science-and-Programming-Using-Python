@@ -2,6 +2,7 @@
 # This function returns a string that is comprised of letters and underscores, 
 # based on what letters in lettersGuessed are in secretWord. 
 
+# solution 1
 def getGuessedWord(secretWord, lettersGuessed):
     '''
     secretWord: string, the word the user is guessing
@@ -17,6 +18,23 @@ def getGuessedWord(secretWord, lettersGuessed):
             ans += '_'
     return ans
     
+# solution 2    
+def getGuessedWord(secretWord, lettersGuessed):   
+
+    newList = []   
+    for word in secretWord:
+        flag = False # refresh every time when finish inner loop
+                     # use flag to control when to output '_'
+        for letter in lettersGuessed:
+            if word == letter:
+                flag = True
+                newList.append(word)
+                break # finish this inner loop
+                      # avoid to compare the rest letters
+        if(flag == False):
+            newList.append('_')   
+   
+    return newList
 ##secretWord = 'apple' 
 ##lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's','a']
 ##print getGuessedWord('apple', ['e', 'i', 'k', 'p', 'r', 's','a'])
