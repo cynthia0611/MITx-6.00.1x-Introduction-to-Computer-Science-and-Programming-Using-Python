@@ -22,3 +22,6 @@ def getAvailableLetters(lettersGuessed):
     for char in letterList:
         outString += char
     return outString
+
+##print getAvailableLetters(['e', 'i', 'k', 'p', 'r', 's'])
+print getAvailableLetters(['e', 'i', 'k', 'p', 'r', 's']) # abcdfghjlmnoqtuvwxyz
