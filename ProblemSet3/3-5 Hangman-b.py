@@ -148,7 +148,7 @@ def hangman(secretWord):
         outString = getGuessedWord(secretWord, getLetter)
 
         
-# if the letters are guessed
+        # if the letters are guessed
         if loChar in secretWord:
             if loChar in guessedLetters: # output to remind repeat input
                 print 'Oops! You\'ve already guessed that letter: ' + outString           
@@ -169,7 +169,7 @@ def hangman(secretWord):
         print 'Sorry, you ran out of guesses. The word was ' + secretWord + '.'
 
 secretWord = chooseWord(wordlist).lower()
-hangman('senselessness')
-        
+# hangman('senselessness')
+hangman(secretWord)        
 
         
