@@ -55,9 +55,7 @@ def isWordGuessed(secretWord, lettersGuessed):
     returns: boolean, True if all the letters of secretWord are in lettersGuessed;
       False otherwise
     '''
-    # FILL IN YOUR CODE HERE...
-
-
+    
     for word in secretWord:
         if word not in lettersGuessed:
             return False
@@ -84,15 +82,13 @@ def getGuessedWord(secretWord, lettersGuessed):
 ##print getGuessedWord('apple', ['e', 'i', 'k', 'p', 'r', 's','a'])
 ##'app_ e'
 
-
-
 def getAvailableLetters(lettersGuessed):
     '''
     lettersGuessed: list, what letters have been guessed so far
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
-    # FILL IN YOUR CODE HERE...
+
     import string
     letterList = list(string.ascii_lowercase)
     outString = ''
@@ -124,7 +120,7 @@ def hangman(secretWord):
 
     Follows the other limitations detailed in the problem write-up.
     '''
-    # FILL IN YOUR CODE HERE...
+    
     import string
     initialString = string.ascii_lowercase
     print 'Welcome to the game, Hangman!'
@@ -169,7 +165,7 @@ def hangman(secretWord):
         print 'Sorry, you ran out of guesses. The word was ' + secretWord + '.'
 
 secretWord = chooseWord(wordlist).lower()
-# hangman('senselessness')
+# hangman('senselessness') # test
 hangman(secretWord)        
 
         
