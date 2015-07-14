@@ -160,10 +160,62 @@ def playGame(wordList):
 
     wordList: list (string)
     """
-    # TO DO... <-- Remove this comment when you code this function
-    print "playGame not yet implemented." # <-- Remove this when you code this function
+    HAND_SIZE = 7
+    n = HAND_SIZE
+    handCopy = {}
 
+    while True:
+        getInput = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
+        print
+
+        if getInput == 'e':
+            return None
         
+        elif getInput == 'r':
+            if handCopy == {}:
+                print 'You have not played a hand yet. Please play a new hand first!'
+                print
+            else:
+                getInputCom = raw_input('Enter u to have yourself play, c to have the computer play: ')
+                print
+                if getInputCom == 'u':
+                    playHand(handCopy, wordList, n)
+                    print
+                elif getInputCom == 'c':
+                    handCom = dealHand(n)
+                    compPlayHand(handCom, wordList, n)
+                    print
+                else:
+                    print 'Invalid command.'
+                    print
+        
+        
+        elif getInput == 'n':
+            while True:
+            
+                getInputCom = raw_input('Enter u to have yourself play, c to have the computer play: ')
+                print
+                if getInputCom == 'u':           
+                    hand = dealHand(n)
+                    playHand(hand, wordList, n)
+                    handCopy = hand.copy()
+                    print
+                elif getInputCom == 'c':
+                    handCom = dealHand(n)
+                    compPlayHand(handCom, wordList, n)
+                    print
+                else:
+                    print 'Invalid command.'
+                    print                
+        
+        else:
+            print 'Invalid command.'
+            print
+                
+  
+
+
+       
 #
 # Build data structures used for entire session and play game
 #
