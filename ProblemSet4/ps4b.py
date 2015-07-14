@@ -163,58 +163,44 @@ def playGame(wordList):
     HAND_SIZE = 7
     n = HAND_SIZE
     handCopy = {}
-
+    
     while True:
-        getInput = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
-        print
-
-        if getInput == 'e':
-            return None
-        
-        elif getInput == 'r':
-            if handCopy == {}:
-                print 'You have not played a hand yet. Please play a new hand first!'
-                print
-            else:
-                getInputCom = raw_input('Enter u to have yourself play, c to have the computer play: ')
-                print
-                if getInputCom == 'u':
-                    playHand(handCopy, wordList, n)
-                    print
-                elif getInputCom == 'c':
-                    handCom = dealHand(n)
-                    compPlayHand(handCom, wordList, n)
-                    print
-                else:
-                    print 'Invalid command.'
-                    print
+      getInput = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
+      print
+      if getInput == 'e':
+          return None
+      elif getInput not in ('n','r','e'):
+          print 'Invalid command.'
+      elif handCopy == {} and getInput == 'r':
+          print 'You have not played a hand yet. Please play a new hand first!'
+      else:
         
         
-        elif getInput == 'n':
-            while True:
-            
-                getInputCom = raw_input('Enter u to have yourself play, c to have the computer play: ')
-                print
-                if getInputCom == 'u':           
-                    hand = dealHand(n)
-                    playHand(hand, wordList, n)
-                    handCopy = hand.copy()
-                    print
-                elif getInputCom == 'c':
-                    handCom = dealHand(n)
-                    compPlayHand(handCom, wordList, n)
-                    print
-                else:
-                    print 'Invalid command.'
-                    print                
-        
-        else:
-            print 'Invalid command.'
+        hand = dealHand(n)
+        handCopy = hand.copy()
+        while True:
+          
+          getInputCom = raw_input('Enter u to have yourself play, c to have the computer play: ')
+          print
+##          hand = dealHand(n)  
+          if getInputCom == 'u':
+##              hand = dealHand(n)
+            playHand(handCopy, wordList, n)
+            handCopy = handCopy.copy()
             print
-                
-  
+            break
 
+          elif getInputCom == 'c':
+##              handCom = dealHand(n)
+            compPlayHand(handCopy, wordList, n)
+            handCopy = handCopy.copy()
+            print
+            break
 
+          else:
+            print 'Invalid command.'
+      
+https://raw.githubusercontent.com/jdhuasirui/MITx--CMITx--6.00.1x-Introduction-to-CS-and-Programming-Using-Python/master/Problem%20Set%204_b.py              
        
 #
 # Build data structures used for entire session and play game
