@@ -202,6 +202,7 @@ def playGame(wordList):
               print              
 
 #---------------------------------------------------------------------------------------------------------------------
+##Solution 2
     hand = {}
     
     while True:
@@ -241,7 +242,34 @@ def playGame(wordList):
 
 ## other solutions:
 ## https://raw.githubusercontent.com/jdhuasirui/MITx--CMITx--6.00.1x-Introduction-to-CS-and-Programming-Using-Python/master/Problem%20Set%204_b.py              
-       
+#-------------------------------------------------------------------------
+##Solution 3
+    isFirst = True
+    n = HAND_SIZE
+    while 1:
+        choice = raw_input("Enter n to deal a new hand, r to replay the last hand, or e to end game: ")
+        if (choice == 'e'):
+            break       
+        elif (choice != 'r' and choice != 'n'):
+            print "Invalid command.\n"            
+        elif (isFirst and choice is 'r'):                    
+            print "You have not played a hand yet. Please play a new hand first!\n"
+        else:
+            isFirst = False
+            while 1:
+                choice2 = raw_input("Enter u to have yourself play, c to have the computer play: ")
+                if (choice2 == 'c'):
+                    if (choice == 'n'):
+                        hand = dealHand(n)
+                    compPlayHand(hand, wordList, n)
+                    break
+                elif (choice2 == 'u'):
+                    if (choice == 'n'):
+                        hand = dealHand(n)
+                    playHand(hand, wordList, n)
+                    break
+                else:
+                    print "Invalid command.\n"          
 #
 # Build data structures used for entire session and play game
 #
