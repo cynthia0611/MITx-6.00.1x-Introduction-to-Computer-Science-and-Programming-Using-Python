@@ -160,47 +160,87 @@ def playGame(wordList):
 
     wordList: list (string)
     """
-    HAND_SIZE = 7
-    n = HAND_SIZE
-    handCopy = {}
+
+# Solution 1
+    hand = {}
     
     while True:
       getInput = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
       print
       if getInput == 'e':
           return None
-      elif getInput not in ('n','r','e'):
+        
+      elif getInput not in ('n','r'):
           print 'Invalid command.'
-      elif handCopy == {} and getInput == 'r':
-          print 'You have not played a hand yet. Please play a new hand first!'
-      else:
-        
-        
-        hand = dealHand(n)
-        handCopy = hand.copy()
-        while True:
           
+      elif hand == {} and getInput == 'r':
+          print 'You have not played a hand yet. Please play a new hand first!'
+          
+      elif getInput == 'n' or getInput == 'r': # if input is 'n' then need to get new hand, and store it for repeat later       
+        if (getInput == 'n'):
+            hand = dealHand(HAND_SIZE)        
+            handCopy = hand.copy()
+        else: # if input is 'r', use the hand which saved previously
+            hand = handCopy.copy()
+        
+        while True:          
           getInputCom = raw_input('Enter u to have yourself play, c to have the computer play: ')
           print
-##          hand = dealHand(n)  
+
           if getInputCom == 'u':
-##              hand = dealHand(n)
-            playHand(handCopy, wordList, n)
-            handCopy = handCopy.copy()
+            playHand(hand, wordList, HAND_SIZE)
             print
             break
 
           elif getInputCom == 'c':
-##              handCom = dealHand(n)
-            compPlayHand(handCopy, wordList, n)
-            handCopy = handCopy.copy()
+            compPlayHand(hand, wordList, HAND_SIZE)
             print
             break
-
+        
           else:
-            print 'Invalid command.'
+              print 'Invalid command.'
+              print              
+
+#---------------------------------------------------------------------------------------------------------------------
+    hand = {}
+    
+    while True:
+      getInput = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
+      print
+      if getInput == 'e':
+          return None
+          
+      elif hand == {} and getInput == 'r':
+          print 'You have not played a hand yet. Please play a new hand first!'
+       
+      elif getInput == 'n' or getInput == 'r':        
       
-https://raw.githubusercontent.com/jdhuasirui/MITx--CMITx--6.00.1x-Introduction-to-CS-and-Programming-Using-Python/master/Problem%20Set%204_b.py              
+        while True:          
+          getInputCom = raw_input('Enter u to have yourself play, c to have the computer play: ')
+          print
+
+          if getInputCom == 'u':                            
+              if getInput == 'n':
+                  hand = dealHand(HAND_SIZE)
+              playHand(hand, wordList, HAND_SIZE) #equals to avoid: elif getInput == 'r':
+              print
+              break
+
+          elif getInputCom == 'c':
+              if getInput == 'n':
+                  hand = dealHand(HAND_SIZE)              
+              compPlayHand(hand, wordList, HAND_SIZE)#equals to avoid: elif getInput == 'r':
+              print
+              break
+        
+          else:
+              print 'Invalid command.'
+              print
+      else:
+          print 'Invalid command.'
+
+## other solutions:
+## https://raw.githubusercontent.com/jdhuasirui/MITx--CMITx--6.00.1x-Introduction-to-CS-and-Programming-Using-Python/master/Problem%20Set%204_b.py              
        
 #
 # Build data structures used for entire session and play game
