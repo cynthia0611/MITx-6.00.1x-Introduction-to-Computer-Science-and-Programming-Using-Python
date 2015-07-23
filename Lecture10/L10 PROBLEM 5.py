@@ -38,7 +38,8 @@ Do these two functions result in the same sorted lists?
 ##
 ##You can sort a list by always moving the smallest element from the unsorted list to a new list.
 ##That procedure would add the elements to the new list in increasing order,
-##and when every element from the old list has been moved over, we end up with a new sorted list. This type of sorting algorithm is often called Selection Sort.
+##and when every element from the old list has been moved over, we end up with a new sorted list. 
+##This type of sorting algorithm is often called Selection Sort.
 ##
 ##selSort implements this without explicitly creating a new list, by maintaining sorted (from position 0 to i-1) and unsorted
 ##(from position i to the end) parts of the list. All elements in positions before the iterating variable i are sorted,
